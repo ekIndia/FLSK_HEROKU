@@ -2,6 +2,7 @@ from model import InputForm
 from flask import Flask, render_template, request
 from compute import compute
 import sys
+import pickle
 
 try:
     template_name = sys.argv[1]
