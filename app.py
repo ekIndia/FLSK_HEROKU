@@ -20,9 +20,9 @@ def index():
         rr="CH"
         #if form.by.data.split(==0:
             #rr="CH"
-        result=None
-        #result = compute(form.R.data, form.Q.data,
-        #                 form.bx.data,form.by.data,form.M.data)
+        #result=None
+        result = compute(form.R.data, form.Q.data,
+                         form.bx.data,form.by.data,form.M.data)
     else:
         result = None
     return render_template('view1.html',form=form, result=result, rr=rr)
