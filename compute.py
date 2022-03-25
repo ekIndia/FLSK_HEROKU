@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import os, time, glob
 import math
 import numpy as np
+import pickle
 
 def get_labels(idx,Mol):
     LBL=["R1","R2","R3","R4","R5","R6"]
@@ -168,9 +169,12 @@ def hfco_pes(hfco_r,hfco_th,t,t1,ith,ith1):
     return H_cm*(V+c)
 
 def hono_pes(hono_r,hono_th,t,t1,ith,ith1):
+
     
-    r=np.loadtxt("r_params.txt")
-    wu=np.loadtxt("w_params.txt")
+    r = pickle.load(open('r_params.pkl','rb'))
+    wu = pickle.load(open('w_params.pkl','rb'))
+    #r=np.loadtxt("r_params.txt")
+    #wu=np.loadtxt("w_params.txt")
     c = 0.219898906 # for HFCO Cis
     
     nofd = len(wu[0]) #6 #Number of degrees of freedom
