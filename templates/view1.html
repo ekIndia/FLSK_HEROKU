@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>homepage</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="static/style.css">
+
+
+</head>
+
+<body>
+<ul>
+  <li><a href="#">Home</a></li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Research</a>
+    <div class="dropdown-content">
+      <a href="https://ekindia.github.io/projects.html">Projects</a>
+      <a href="publications.html">Publications</a>
+      <a href="#">Resources</a>
+    </div>
+  </li>
+
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">About</a>
+    <div class="dropdown-content">
+      <a href="#">Academic</a>
+      <a href="#">Professional</a>
+      <a href="#">Other</a>
+    </div>
+  </li>
+  </li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Plotting-Tools</a>
+    <div class="dropdown-content">
+      <a href="#">Gnuplot</a>
+      <a href="#">Xmgrace</a>
+      <a href="#">Pylab&MatPlotlib</a>
+      <a href="#">Matlab</a>
+      <a href="test_tables_set2a.html">UnitConversionTable</a>
+    </div>
+  </li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Useful-Links</a>
+    <div class="dropdown-content">
+      <a href="conversion_tables.htm" target="_blank">Unit-Conversion-Table</a>
+      <a href="https://github.com/Pulokesh/Useful_Scripts/blob/master/JupyterNotebook/Markdown_Tutorials.ipynb" target="_blank">JupyterNotebook</a>
+      <a href="#">Others</a>
+    </div>
+  </li>
+</ul>
+<div id = "boxes">
+<h1>Plot Functions using Matplotlib on Heroku</h1>              
+
+<div id = "leftbox">
+{% if result != None %}
+<img src="{{ result }}" width=500>
+{% endif %}
+</div> 
+
+<div id = "middlebox">
+<h2>Enter Data</h2>
+<center>
+<form method=post action="">
+<table>
+  {% for field in form %}
+    <tr>
+    <td>{{ field.name }}</td><td>{{ field }}</td>
+    <td>{{ field.label }}</td>
+    </tr>
+  {% endfor %}
+</table>
+<p><input type=submit value=Compute></form></p>
+ </center>
+</div> 
+    
+
+
+<div id = "rightbox">
+
+<h2>Equilibrium Geometries of Selected Molecules</h2>
+
+<p>Use these values when switching molecular systems</p>
+    
+    <hr>
+    <table>      
+  {% for x in [["Molecules","Geometry, R","Geometry, Q","Assigned Coordinates"],["CS2","2.95,2.95","3.14285","CS1,CS2,OCS"],["HFCO-trans","3.446,2.488,2.4714","0.8619,-0.2519,3.14285","CH,CF,CO,cos(HCO),cos(FCO),Phi"],["HFCO-cis","3.446,2.488,2.4714","0.8619,-0.2519,0.0","CH,CF,CO,cos(HCO),cos(FCO),Phi"],["HFCO-ts_ct","3.446,2.488,2.4714","0.8619,-0.2519,1.57","CH,CF,CO,cos(HCO),cos(FCO),Phi"],["HFCO-eq","2.0632,2.534,2.22874","-0.6138,-0.54038,3.14285","CH,CF,CO,cos(HCO),cos(FCO),Phi"],["HONO","2.21,2.69,1.823","-0.353,-0.207,3.14285","N=O,O-N,OH,cos(ONO),cos(HON),Phi"]] %}
+    <tr>
+        <td><b>{{ x[0] }}</b></td><td>{{ x[1] }}</td>
+    <td>{{ x[2] }}</td><td>{{ x[3] }}</td>
+    </tr>
+  {% endfor %}
+</table>
+<hr>
+
+</div> 
+</div>
+
+</body>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
+</html>
+

@@ -1,27 +1,30 @@
-import numpy as np
-from flask import Flask, request, jsonify, render_template
-import pickle
+from model import InputForm
+from flask import Flask, render_template, request
+from compute import compute
+import sys
+
+try:
+    template_name = sys.argv[1]
+except IndexError:
+    template_name = 'view1'
 
 app = Flask(__name__)
-model = pickle.load(open('model.pkl', 'rb'))
 
-@app.route('/')
-def home():
-    return render_template('index.html')
+#@app.route('/vib1', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    rr="Nothing"
+    form = InputForm(request.form)
+    if request.method == 'POST' and form.validate():
+        rr="CH"
+        #if form.by.data.split(==0:
+            #rr="CH"
+        result = compute(form.R.data, form.Q.data,
+                         form.bx.data,form.by.data,form.M.data)
+    else:
+        result = None
+    return render_template('view1.html',form=form, result=result, rr=rr)
+    #return render_template(template_name + '.html',
 
-@app.route('/predict',methods=['POST'])
-def predict():
-    '''
-    For rendering results on HTML GUI
-    '''
-    int_features = [int(x) for x in request.form.values()]
-    final_features = [np.array(int_features)]
-    prediction = model.predict(final_features)
-
-    output = round(prediction[0], 2)
-
-    return render_template('index.html', prediction_text='Employee Salary should be $ {}'.format(output))
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
+if __name__ == '__main__':
+    app.run()
