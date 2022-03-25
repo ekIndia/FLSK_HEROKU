@@ -27,7 +27,7 @@ li a, .dropbtn {
 }
 
 li a:hover, .dropdown:hover .dropbtn {
-    background-color: cyan;
+    background-color: coral;
 }
 
 li.dropdown {
@@ -114,3 +114,4 @@ th, td {
   text-align: left;
   border-bottom: 1px solid #ddd;
 }
+tr:hover {background-color: coral;}

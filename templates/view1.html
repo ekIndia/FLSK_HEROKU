@@ -82,9 +82,21 @@
 
 <p>Use these values when switching molecular systems</p>
     
+    <hr>
+    <table>      
+  {% for x in [["Molecules","Geometry, R","Geometry, Q","Assigned Coordinates"],["CS2","2.95,2.95","3.14285","CS1,CS2,OCS"],["HFCO-trans","3.446,2.488,2.4714","0.8619,-0.2519,3.14285","CH,CF,CO,cos(HCO),cos(FCO),Phi"],["HFCO-cis","3.446,2.488,2.4714","0.8619,-0.2519,0.0","CH,CF,CO,cos(HCO),cos(FCO),Phi"],["HFCO-ts_ct","3.446,2.488,2.4714","0.8619,-0.2519,1.57","CH,CF,CO,cos(HCO),cos(FCO),Phi"],["HFCO-eq","2.0632,2.534,2.22874","-0.6138,-0.54038,3.14285","CH,CF,CO,cos(HCO),cos(FCO),Phi"],["HONO","2.21,2.69,1.823","-0.353,-0.207,3.14285","N=O,O-N,OH,cos(ONO),cos(HON),Phi"]] %}
+    <tr>
+        <td><b>{{ x[0] }}</b></td><td>{{ x[1] }}</td>
+    <td>{{ x[2] }}</td><td>{{ x[3] }}</td>
+    </tr>
+  {% endfor %}
+</table>
+<hr>
+
 </div> 
 </div>
 
 </body>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
 </html>
 
